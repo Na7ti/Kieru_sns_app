@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "${DB_PASSWORD}"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./Database:/var/opt/mssql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: Backend/Kieru.Api/Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Frontend/Dockerfile
+    ports:
+      - "3000:3000"
