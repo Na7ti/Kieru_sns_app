@@ -21,5 +21,5 @@
 ## 開発の始め方
 
 1. `docker-compose up -d` でデータベースを起動。
-2. `backend` ディレクトリで .NET プロジェクトをビルド。
-3. `frontend` ディレクトリで `npm install` し、`npm run dev` で起動。
+2. `Backend` ディレクトリで .NET プロジェクトをビルド。
+3. `Frontend` ディレクトリで `npm install` し、`npm run dev` で起動。
