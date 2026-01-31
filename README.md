@@ -5,15 +5,15 @@
 
 ```text
 /Kieru_sns_app
-├── /docs # プロジェクト設計・ドキュメント
+├── /Docs # プロジェクト設計・ドキュメント
 │ ├── /requirements # 要件定義書、ユーザー調査
 │ ├── /design # UI/UXデザイン、ワイヤーフレーム
 │ ├── /architecture # 技術アーキテクチャ、インフラ構成図
 │ ├── /db # ER図、テーブル定義、マイグレーション記録
 │ └── /api # API仕様書（Swagger/OpenAPI等）
-├── /frontend # Reactプロジェクト (VSCode)
-├── /backend # .NETプロジェクト (Visual Studio)
-├── /database # Docker用SQL Server設定・初期化SQL
+├── /Frontend # Reactプロジェクト (VSCode)
+├── /Backend # .NETプロジェクト (Visual Studio)
+├── /Database # Docker用SQL Server設定・初期化SQL
 ├── docker-compose.yml
 └── README.md # プロジェクトの概要・起動方法
 ```
