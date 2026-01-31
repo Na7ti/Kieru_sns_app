@@ -9,12 +9,12 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - ./database:/var/opt/mssql/data
+      - ./Database:/var/opt/mssql/data
 
   backend:
     build:
       context: .
-      dockerfile: backend/LifespanFeed.Api/Dockerfile
+      dockerfile: Backend/Kieru.Api/Dockerfile
     ports:
       - "5000:80"
     depends_on:
@@ -23,6 +23,6 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: frontend/Dockerfile
+      dockerfile: Frontend/Dockerfile
     ports:
       - "3000:3000"
