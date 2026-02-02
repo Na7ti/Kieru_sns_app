@@ -15,9 +15,10 @@
     - 主要なエンドポイントの定義
 
 ## 完了条件
-- [ ] `Docs/design/wireframes.md` が更新されていること
-- [ ] `Docs/db/schema.md` が更新されていること
-- [ ] `Docs/api/endpoints.md` が作成されていること
+- [x] `Docs/design/wireframes.md` が更新されていること
+- [x] `Docs/db/schema.md` が更新されていること
+- [x] `Docs/api/endpoints.md` が作成されていること
 
-## 備考
+## ステータス
+- **完了** (2026-02-02)
 - UIはシンプルかつ、情報の「儚さ」が伝わるデザインを意識する。
