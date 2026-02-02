@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run -A --node-modules-dir npm:vite",
+    "dev": "deno run -A --node-modules-dir npm:vite --host 0.0.0.0",
     "build": "deno run -A --node-modules-dir npm:vite build",
     "preview": "deno run -A --node-modules-dir npm:vite preview"
   },
@@ -12,6 +12,9 @@
     "clsx": "npm:clsx@^2.1.0",
     "tailwind-merge": "npm:tailwind-merge@^2.2.1",
     "date-fns": "npm:date-fns@^3.3.1",
+    "tailwindcss": "npm:tailwindcss@^3.4.1",
+    "postcss": "npm:postcss@^8.4.35",
+    "autoprefixer": "npm:autoprefixer@^10.4.17",
     "@/": "./src/"
   },
   "compilerOptions": {
