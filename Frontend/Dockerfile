@@ -1,20 +1,23 @@
-FROM denoland/deno:latest
+FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy configuration files
-COPY deno.json ./
+# パッケージファイルをコピー
+COPY package.json ./
+
+# 依存関係をインストール
+RUN npm install
+
+# 設定ファイルをコピー
 COPY tailwind.config.js ./
-COPY vite.config.ts ./
+COPY vite.config.js ./
 COPY postcss.config.js ./
 COPY index.html ./
+COPY tsconfig.json ./
 
-# Copy source code
+# ソースコードをコピー
 COPY src ./src
-
-# Pre-fetch dependencies
-RUN deno cache --node-modules-dir npm:vite npm:tailwindcss npm:postcss npm:autoprefixer npm:react npm:react-dom
 
 EXPOSE 3000
 
-CMD ["task", "dev"]
+CMD ["npm", "run", "dev"]

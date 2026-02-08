@@ -12,6 +12,7 @@
     "clsx": "npm:clsx@^2.1.0",
     "tailwind-merge": "npm:tailwind-merge@^2.2.1",
     "date-fns": "npm:date-fns@^3.3.1",
+    "@tanstack/react-query": "npm:@tanstack/react-query@^5.25.0",
     "tailwindcss": "npm:tailwindcss@^3.4.1",
     "postcss": "npm:postcss@^8.4.35",
     "autoprefixer": "npm:autoprefixer@^10.4.17",

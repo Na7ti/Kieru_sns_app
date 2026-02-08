@@ -40,12 +40,18 @@ erDiagram
 | カラム名 | 型 | 制約 | 備考 |
 | :--- | :--- | :--- | :--- |
 | id | int | PK, Identity | 投稿ID |
-| user_id | int | FK(Users.id), Not Null | 投稿者ID |
+| user_id | int | FK(Users.id), Not Null | 投稿者ID (MVPでは固定IDでも可) |
 | content | nvarchar(280) | Not Null | 投稿本文 |
-| lifespan_category | nvarchar(20) | Not Null | カテゴリー名 |
-| created_at | datetime | Not Null, Default(GETDATE()) | 投稿日時 |
-| expires_at | datetime | Not Null | 自動削除（期限）日時 |
-| is_deleted | bit | Not Null, Default(0) | 論理削除フラグ（オプション） |
+| lifespan_category | nvarchar(20) | Not Null | DETOX / SHARE / DISCUSS |
+| created_at | datetime | Not Null, Default(GETUTCDATE()) | 投稿日時 (UTC) |
+| expires_at | datetime | Not Null | 削除予定日時 (UTC) |
+| is_deleted | bit | Not Null, Default(0) | 論理削除フラグ |
 
 ## 3. インデックス設計
-- `POSTS.expires_at`: 削除期限が過ぎた投稿を効率的に抽出・フィルタリングするために、非クラスター化インデックスを作成。
+- `IX_Posts_ExpiresAt`: `expires_at` (Non-Clustered) - 期限切れ投稿の抽出高速化。
+- `IX_Posts_IsDeleted_ExpiresAt`: `is_deleted`, `expires_at` (Non-Clustered) - タイムライン表示用。
+
+## 4. カテゴリーと保持期間の定義
+- **DETOX**: 15分, 30分, 60分
+- **SHARE**: 24時間
+- **DISCUSS**: 48時間, 72時間
